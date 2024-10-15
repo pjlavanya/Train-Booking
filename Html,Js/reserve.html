@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Railway Reservation System</title>
+    <link rel="stylesheet" href="reserve.css">
+</head>
+<body>
+    
+    <div class="container">
+     <h1>Railway Reservation System</h1>
+     <div class="reserve">
+     <div class="details">
+        <h2>Passenger Details:</h2>
+       <label>Name:</label>
+       <input type="text" id="name" name="name" placeholder="Enter your name"></input>
+       <span id="name_error"></span>
+       <label>Phone Number:</label>
+       <input type="tel" id="phoneno" name="phponeno" placeholder="Enter your phoneno" pattern="/^\d{10}$"></input>
+       <span id="phoneno_error"></span>
+       <label>Age:</label>
+       <input type="number" id="age" name="age" placeholder="Enter your age" ></input>
+       <span id="age_error"></span>
+       <label>Aadhar number:</label>
+       <input type="number" id="aadhar" name="aadhar" placeholder="Enter your aadhar no"></input>
+       <span id="aadhar_error"></span>
+       <label>Gender:</label>
+       <select id="gender" name="gender"required>
+        <option>Select the gender</option>
+        <option>Male</option>
+        <option>Female</option>
+        <option>Others</option>
+       </select>
+       <span id="gender_error"></span>
+       </div>
+
+       <div class="details">
+        <h2>Train Details :-</h2>
+
+        <label>Source Station:</label>
+        <input type="text" id="source" name="source" placeholder="Enter source station" required>
+        <span id="source_error"></span>
+        <label>Destination Station:</label>
+        <input type="text" id="destination" name="destination" placeholder="Enter destination station" required>
+        <span id="destination_error"></span>
+        <label>Train Name:</label>
+        <input type="text" id="train" name="train" placeholder="Enter train name" required>
+        <span id="trainname_error"></span>
+        <label>Train Number:</label>
+        <input type="number" id="trainnumber" name="trainnumber" placeholder="Enter train number" required>
+        <span id="trainno_error"></span>
+        <label>Date of Journey:</label>
+        <input type="date" id="date" name="date" required>
+        <span id="date_error"></span> 
+        </div> 
+    </div>
+        <button class="submit-btn" type="submit" onclick="booking()" style="background-color: red;">Book Ticket</button>
+</div>    
+
+<script>
+ function booking() {
+        var nameEl = document.getElementById("name");
+        var nameError = document.getElementById('name_error');
+    
+        if (nameEl.value === '') {
+            nameError.innerHTML = "Name is required";
+            nameEl.style.borderColor = 'red';
+            return '';
+        } else {
+            nameError.innerHTML = "";
+            nameEl.style.borderColor = 'green';
+        }
+    
+        var phonenoEl = document.getElementById("phoneno");
+        var phonenoError = document.getElementById('phoneno_error');
+    
+        if (phonenoEl.value === '') {
+            phonenoError.innerHTML = "Phone number is required";
+            phonenoEl.style.borderColor = 'red';
+            return '';
+        } else if (phonenoEl.value.length !== 10) {
+            phonenoError.innerHTML = "Phone number must be 10 digits";
+            phonenoEl.style.borderColor = 'red';
+            return '';
+        } else {
+            phonenoError.innerHTML = "";
+            phonenoEl.style.borderColor = 'green';
+        }
+    
+        var ageEl = document.getElementById("age");
+        var ageError = document.getElementById('age_error');
+    
+        if (ageEl.value === '') {
+            ageError.innerHTML = "Age is required";
+            ageEl.style.borderColor = 'red';
+            return '';
+        } else if (isNaN(ageEl.value) || ageEl.value <= 0) {
+            ageError.innerHTML = "Age must be a valid number";
+            ageEl.style.borderColor = 'red';
+            return '';
+        } else {
+            ageError.innerHTML = "";
+            ageEl.style.borderColor = 'green';
+        }
+    
+        var aadharnoEl = document.getElementById("aadhar");
+        var aadharError = document.getElementById('aadhar_error');
+    
+        if (aadharnoEl.value === '') {
+            aadharError.innerHTML = "Aadhar number is required";
+            aadharnoEl.style.borderColor = 'red';
+            return '';
+        } else if (aadharnoEl.value.length !== 12) {
+            aadharError.innerHTML = "Aadhar number must be 12 digits";
+            aadharnoEl.style.borderColor = 'red';
+            return '';
+        } else {
+            aadharError.innerHTML = "";
+            aadharnoEl.style.borderColor = 'green';
+        }
+    
+        var genderEl = document.getElementById("gender");
+        var genderError = document.getElementById('gender_error');
+    
+        if (genderEl.value === '') {
+            genderError.innerHTML = "gender is required";
+            genderEl.style.borderColor = 'red';
+            return '';
+        } else {
+            genderError.innerHTML = "";
+            genderEl.style.borderColor = 'green';
+        }
+        var sourceEl = document.getElementById("source");
+        var sourceError = document.getElementById('source_error');
+
+        if(source.value === ''){
+            sourceError.innerHTML = "source is required";
+            sourceEl.style.borderColor = 'red';
+            return '';
+        }
+        else{
+            sourceError.innerHTML = "";
+            sourceEl.style.borderColor = 'green';
+        }
+        var destinationEl = document.getElementById("destination");
+        var destinationError = document.getElementById('destination_error');
+
+        if(destination.value === ''){
+            destinationError.innerHTML = "destination is required";
+            destinationEl.style.borderColor = 'red';
+            return '';
+        }
+        else{
+            destinationError.innerHTML = "";
+            destinationEl.style.borderColor = 'green';
+        } 
+        var trainEl = document.getElementById("train");
+        var trainError = document.getElementById('trainname_error');
+
+        if(train.value === ''){
+            trainError.innerHTML = "train is required";
+            trainEl.style.borderColor = 'red';
+            return '';
+        }
+        else{
+            trainError.innerHTML = "";
+            trainEl.style.borderColor = 'green';
+        } 
+        var trainnumEl = document.getElementById("trainnumber");
+        var trainnumError = document.getElementById('trainno_error');
+
+        if(trainnumber.value === ''){
+            trainnumError.innerHTML = "train number is required";
+            trainnumEl.style.borderColor = 'red';
+            return '';
+        }else{
+            trainnumError.innerHTML = "";
+            trainnumEl.style.borderColor = 'green';
+        }
+        var dateEl = document.getElementById("date");
+        var dateError = document.getElementById('date_error');
+
+        if(date.value === ''){
+            dateError.innerHTML = "date is required";
+            dateEl.style.borderColor = 'red';
+            return '';
+        }
+        else{
+            dateError.innerHTML = "";
+            dateEl.style.borderColor = 'green';
+        }
+        var ticket = {
+            Name: nameEl.value,
+            Phonenumber :phonenoEl.value,
+            Age : ageEl.value,
+            Aadharnumber :aadharnoEl.value,
+            Gender :genderEl.value,
+            Source :sourceEl.value,
+            Destination :destinationEl.value,
+            Train :trainEl.value,
+            Trainnumber :trainnumEl.value,
+            Date: dateEl.value,
+        };
+        console.log(ticket);
+        
+        var bookingarr = JSON.parse(localStorage.getItem('details')) || [];
+        bookingarr.push(ticket);
+        console.log(bookingarr);
+        localStorage.setItem('details',JSON.stringify(bookingarr));
+        window.location.href = "./reservetable.html"
+    }
+
+</script>
+
+</body>
+</html>
+
