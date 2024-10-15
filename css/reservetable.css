@@ -1,6 +1,6 @@
 body {
     font-family: 'Courier New', Courier, monospace;
-    background-image:url(../seats.avif);
+    background-image:url(seats.avif);
     background-size: cover;
 }
 .train-container {
