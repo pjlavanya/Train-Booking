@@ -1,10 +1,10 @@
 body {
     font-family: 'Courier New', Courier, monospace;
-    background-image:url(seats.avif);
+    background-image:url(./trin.avif);
     background-size: cover;
 }
 .train-container {
-    width: 40%;
+    width: 70%;
     backdrop-filter: blur( 0.5px );
     -webkit-backdrop-filter: blur( 0.1px );
     margin: 20px auto;
